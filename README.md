@@ -1,5 +1,5 @@
-Reproducer (in particular environments only) for https://github.com/moby/buildkit/issues/5478
+Reproducer for https://github.com/tonistiigi/binfmt/issues/285
 
 ```shell
-BUILDKIT_VERSION=v0.17.0 ./build.sh
+BUILDKIT_VERSION=v0.26.3 ./build.sh
 ```
