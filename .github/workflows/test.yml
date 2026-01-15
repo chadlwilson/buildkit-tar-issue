@@ -1,0 +1,23 @@
+name: Build Image wth buildx
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  ubuntu:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        buildkit-version:
+          - v0.26.3
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Buildx with buildkit ${{ matrix.buildkit-version }}
+        env:
+          BUILDKIT_VERSION: ${{ matrix.buildkit-version }}
+        run: ./build.sh
